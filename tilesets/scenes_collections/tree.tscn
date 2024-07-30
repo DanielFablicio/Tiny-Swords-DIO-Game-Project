@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://do06g7hvq8sck"]
+
+[ext_resource type="SpriteFrames" uid="uid://dkt51rsii822l" path="res://sprites/animated/scene_collections/tree.tres" id="1_dckrf"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_f8swp"]
+radius = 13.0
+
+[node name="Tree" type="StaticBody2D"]
+y_sort_enabled = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("1_dckrf")
+autoplay = "default"
+frame_progress = 0.579117
+offset = Vector2(0, -75)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, -10)
+shape = SubResource("CircleShape2D_f8swp")

@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://c70vne32r7rs7"]
+
+[ext_resource type="SpriteFrames" uid="uid://o2vk6tj16c8" path="res://sprites/animated/death/deathSkull.tres" id="1_yu2hl"]
+[ext_resource type="Script" path="res://misc/death_skull.gd" id="2_g88dr"]
+
+[node name="DeathSkull" type="AnimatedSprite2D"]
+sprite_frames = ExtResource("1_yu2hl")
+animation = &"death"
+autoplay = "death"
+offset = Vector2(0, -30)
+script = ExtResource("2_g88dr")

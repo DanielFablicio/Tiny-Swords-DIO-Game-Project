@@ -1,0 +1,79 @@
+[gd_resource type="SpriteFrames" load_steps=11 format=3 uid="uid://ccr7qk4bg5ath"]
+
+[ext_resource type="Texture2D" uid="uid://cbtxux8nj2qrr" path="res://addons/TinySwords/Troops/Goblins/Barrel/Red/Barrel_Red.png" id="1_51uob"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t1atm"]
+atlas = ExtResource("1_51uob")
+region = Rect2(256, 640, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fitot"]
+atlas = ExtResource("1_51uob")
+region = Rect2(128, 640, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ntgp8"]
+atlas = ExtResource("1_51uob")
+region = Rect2(0, 640, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_borsr"]
+atlas = ExtResource("1_51uob")
+region = Rect2(0, 384, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1v6qu"]
+atlas = ExtResource("1_51uob")
+region = Rect2(128, 384, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gntvu"]
+atlas = ExtResource("1_51uob")
+region = Rect2(256, 384, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w4ar6"]
+atlas = ExtResource("1_51uob")
+region = Rect2(384, 384, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jehfd"]
+atlas = ExtResource("1_51uob")
+region = Rect2(512, 384, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ls16"]
+atlas = ExtResource("1_51uob")
+region = Rect2(640, 384, 128, 128)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t1atm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fitot")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ntgp8")
+}],
+"loop": true,
+"name": &"attack",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_borsr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1v6qu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gntvu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w4ar6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jehfd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ls16")
+}],
+"loop": true,
+"name": &"run",
+"speed": 10.0
+}]

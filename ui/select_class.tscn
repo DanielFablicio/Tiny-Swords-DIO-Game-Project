@@ -1,0 +1,278 @@
+[gd_scene load_steps=27 format=3 uid="uid://dvneb3qbyri1n"]
+
+[ext_resource type="Script" path="res://ui/select_class.gd" id="1_8hsec"]
+[ext_resource type="Texture2D" uid="uid://p5luanm6jvc6" path="res://addons/TinySwords/Troops/Knights/Warrior/Blue/Warrior_Blue.png" id="1_bxo4v"]
+[ext_resource type="Texture2D" uid="uid://df5dtul0yiox3" path="res://addons/TinySwords/UI/Buttons/Button_Blue_9Slides.png" id="1_p4001"]
+[ext_resource type="Texture2D" uid="uid://dgv5u3a30ixba" path="res://addons/TinySwords/Troops/Knights/Archer/Blue/Archer_Blue.png" id="2_emcax"]
+[ext_resource type="Texture2D" uid="uid://bpsex15tj3ivp" path="res://addons/TinySwords/UI/Buttons/Button_Hover_9Slides.png" id="2_l4ih7"]
+[ext_resource type="Texture2D" uid="uid://b03vigp5k7pi6" path="res://addons/TinySwords/UI/Buttons/Button_Blue_9Slides_Pressed.png" id="3_8cs3f"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1u7a3"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(1, 1, 1, 1)
+expand_margin_top = 6.0
+
+[sub_resource type="SystemFont" id="SystemFont_diawm"]
+font_names = PackedStringArray("Minecraft")
+subpixel_positioning = 0
+
+[sub_resource type="LabelSettings" id="LabelSettings_2a8sv"]
+font = SubResource("SystemFont_diawm")
+font_size = 45
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nc447"]
+texture = ExtResource("1_p4001")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_d4yx6"]
+texture = ExtResource("2_l4ih7")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lrn53"]
+texture = ExtResource("3_8cs3f")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4lyo5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sn8lt"]
+atlas = ExtResource("1_bxo4v")
+region = Rect2(56, 40, 88, 96)
+
+[sub_resource type="SystemFont" id="SystemFont_hmlfr"]
+font_names = PackedStringArray("Minecraft")
+subpixel_positioning = 0
+
+[sub_resource type="LabelSettings" id="LabelSettings_sb8ks"]
+font = SubResource("SystemFont_hmlfr")
+font_size = 30
+outline_size = 15
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dj8qg"]
+texture = ExtResource("1_p4001")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ronpv"]
+texture = ExtResource("2_l4ih7")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4pjid"]
+texture = ExtResource("3_8cs3f")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_er0m7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dai0r"]
+atlas = ExtResource("2_emcax")
+region = Rect2(48, 48, 96, 96)
+margin = Rect2(0, 10, 0, 0)
+
+[sub_resource type="SystemFont" id="SystemFont_4eym0"]
+font_names = PackedStringArray("Minecraft")
+subpixel_positioning = 0
+
+[sub_resource type="LabelSettings" id="LabelSettings_fd2os"]
+font = SubResource("SystemFont_4eym0")
+font_size = 30
+outline_size = 15
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_53tm8"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_bcptw"]
+resource_name = "default"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Background:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.9),
+"transitions": PackedFloat32Array(2.54912, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.568627)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("VBoxContainer:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.812252, 1),
+"update": 0,
+"values": [Vector2(367.5, -100), Vector2(367.5, 69)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("VBoxContainer:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bh12g"]
+_data = {
+"RESET": SubResource("Animation_53tm8"),
+"default": SubResource("Animation_bcptw")
+}
+
+[node name="SelectClass" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+script = ExtResource("1_8hsec")
+metadata/_edit_lock_ = true
+
+[node name="Background" type="Panel" parent="."]
+modulate = Color(1, 1, 1, 0.568627)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -576.0
+offset_top = -324.0
+offset_right = 576.0
+offset_bottom = 324.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 1519.5
+offset_top = 717.0
+offset_right = 1936.5
+offset_bottom = 1137.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 40
+
+[node name="Panel" type="Panel" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.3
+theme_override_styles/panel = SubResource("StyleBoxFlat_1u7a3")
+
+[node name="Label" type="Label" parent="VBoxContainer/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -165.0
+offset_top = -25.5
+offset_right = 165.0
+offset_bottom = 25.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Select a class"
+label_settings = SubResource("LabelSettings_2a8sv")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="KnightButton" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/normal = SubResource("StyleBoxTexture_nc447")
+theme_override_styles/hover = SubResource("StyleBoxTexture_d4yx6")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_lrn53")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_4lyo5")
+action_mode = 0
+
+[node name="KnightSprite" type="TextureRect" parent="VBoxContainer/HBoxContainer/KnightButton"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -64.0
+offset_top = 38.0
+offset_right = 64.0
+offset_bottom = 166.0
+grow_horizontal = 2
+texture = SubResource("AtlasTexture_sn8lt")
+stretch_mode = 5
+
+[node name="KnightLabel" type="Label" parent="VBoxContainer/HBoxContainer/KnightButton"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -44.0
+offset_top = -90.0
+offset_right = 45.0
+offset_bottom = -59.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Knight"
+label_settings = SubResource("LabelSettings_sb8ks")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ArcherButton" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/normal = SubResource("StyleBoxTexture_dj8qg")
+theme_override_styles/hover = SubResource("StyleBoxTexture_ronpv")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_4pjid")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_er0m7")
+
+[node name="ArcherSprite" type="TextureRect" parent="VBoxContainer/HBoxContainer/ArcherButton"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -64.0
+offset_top = 38.0
+offset_right = 64.0
+offset_bottom = 166.0
+grow_horizontal = 2
+texture = SubResource("AtlasTexture_dai0r")
+stretch_mode = 4
+
+[node name="ArcherLabel" type="Label" parent="VBoxContainer/HBoxContainer/ArcherButton"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -48.0
+offset_top = -90.0
+offset_right = 54.0
+offset_bottom = -59.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Archer"
+label_settings = SubResource("LabelSettings_fd2os")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_bh12g")
+}
+autoplay = "default"
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/KnightButton" to="." method="_on_knight_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/ArcherButton" to="." method="_on_archer_button_pressed"]

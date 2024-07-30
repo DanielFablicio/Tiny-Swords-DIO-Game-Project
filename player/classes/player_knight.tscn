@@ -1,0 +1,74 @@
+[gd_scene load_steps=8 format=3 uid="uid://cbok8g0iqcmuc"]
+
+[ext_resource type="Script" path="res://player/classes/knight.gd" id="1_8iqtw"]
+[ext_resource type="SpriteFrames" uid="uid://cug4d36y2aij" path="res://sprites/animated/classes/playerKnight.tres" id="2_0jsa4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0pteu"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ef2yu"]
+radius = 133.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_iyaxj"]
+radius = 42.0476
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cxg5p"]
+bg_color = Color(0.158472, 0.158472, 0.158472, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ldy6x"]
+bg_color = Color(1, 0.174173, 0.127216, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="PlayerKnight" type="CharacterBody2D"]
+collision_mask = 7
+motion_mode = 1
+script = ExtResource("1_8iqtw")
+maxSpeed = 3.0
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(-2, -32)
+sprite_frames = ExtResource("2_0jsa4")
+animation = &"idle"
+autoplay = "idle"
+offset = Vector2(2, 0)
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+position = Vector2(0, -7)
+rotation = -3.14159
+shape = SubResource("CircleShape2D_0pteu")
+debug_color = Color(1, 0, 0, 0)
+metadata/_edit_lock_ = true
+
+[node name="SwordArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SwordArea"]
+position = Vector2(1, -38)
+shape = SubResource("CircleShape2D_ef2yu")
+debug_color = Color(0.991224, 0, 0.285527, 0)
+
+[node name="HitboxCollision" type="Area2D" parent="."]
+position = Vector2(0, -34)
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxCollision"]
+y_sort_enabled = true
+shape = SubResource("CircleShape2D_iyaxj")
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+offset_left = -25.0
+offset_top = 6.0
+offset_right = 25.0
+offset_bottom = 12.0
+theme_override_styles/background = SubResource("StyleBoxFlat_cxg5p")
+theme_override_styles/fill = SubResource("StyleBoxFlat_ldy6x")
+show_percentage = false

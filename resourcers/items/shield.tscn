@@ -1,0 +1,89 @@
+[gd_scene load_steps=7 format=3 uid="uid://dbygvikixe7ni"]
+
+[ext_resource type="Texture2D" uid="uid://tgbunx5eyq0l" path="res://addons/Bubbles/bubble_1.png" id="1_dfvd4"]
+[ext_resource type="Script" path="res://resourcers/items/shield.gd" id="1_smsk4"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_8m71o"]
+blend_mode = 1
+
+[sub_resource type="Animation" id="Animation_m2rv5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_yxbka"]
+resource_name = "default"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.378929, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(1.5, 1.5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.9),
+"transitions": PackedFloat32Array(0.329877, 1),
+"update": 0,
+"values": [Color(100, 100, 100, 0.333333), Color(1, 0.803922, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_uc3do"]
+_data = {
+"RESET": SubResource("Animation_m2rv5"),
+"default": SubResource("Animation_yxbka")
+}
+
+[node name="Shield" type="Node2D"]
+script = ExtResource("1_smsk4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("CanvasItemMaterial_8m71o")
+texture = ExtResource("1_dfvd4")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_uc3do")
+}
+autoplay = "default"
+
+[node name="ShieldTimer" type="Timer" parent="."]
+process_callback = 0
+wait_time = 5.0
+one_shot = true
+autostart = true
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="timeout" from="ShieldTimer" to="." method="_on_shield_timer_timeout"]
