@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://bn8jnt4ik6c0l"]
+
+[ext_resource type="Script" path="res://enemies/sheep.gd" id="1_nerv1"]
+[ext_resource type="SpriteFrames" uid="uid://dhu2ixn7ksbwu" path="res://sprites/animated/enemies/sheep.tres" id="2_7hade"]
+[ext_resource type="Script" path="res://behaviors/enemies/follow_player.gd" id="3_epxs7"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cp4ow"]
+radius = 12.9999
+height = 35.7016
+
+[node name="Sheep" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 3
+motion_mode = 1
+script = ExtResource("1_nerv1")
+maxHealth = 1
+maxSpeed = 2.3
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -17)
+sprite_frames = ExtResource("2_7hade")
+animation = &"run"
+autoplay = "run"
+speed_scale = 1.5
+
+[node name="Colission" type="CollisionShape2D" parent="."]
+position = Vector2(0, -16)
+rotation = -1.57422
+scale = Vector2(1, 1.00816)
+shape = SubResource("CapsuleShape2D_cp4ow")
+
+[node name="FollowPlayer" type="Node" parent="."]
+script = ExtResource("3_epxs7")
+
+[node name="DamageMarker" type="Marker2D" parent="."]
+position = Vector2(0, -32)
+
+[connection signal="animation_finished" from="Sprite" to="." method="_on_sprite_animation_finished"]
