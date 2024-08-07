@@ -1,0 +1,70 @@
+[gd_scene load_steps=6 format=3 uid="uid://c0a2vuitm3q4s"]
+
+[ext_resource type="Script" path="res://ui/magics_ui.gd" id="1_gm2q3"]
+[ext_resource type="Texture2D" uid="uid://bq3tyyjum7w75" path="res://addons/Others/ritual icon.png" id="1_psyft"]
+[ext_resource type="Texture2D" uid="uid://cb7gu8sbc15oa" path="res://addons/Others/magic_timer_texture.png" id="2_uqsj7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xuskv"]
+bg_color = Color(1, 0.988333, 0.65, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.284845, 0.0815249, 0.0413486, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_q2whj"]
+
+[node name="MagicsUI" type="HBoxContainer"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 32.0
+offset_top = -152.0
+offset_right = 284.0
+offset_bottom = -34.0
+grow_vertical = 0
+theme_override_constants/separation = 20
+script = ExtResource("1_gm2q3")
+
+[node name="RitualPanel" type="Panel" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_xuskv")
+
+[node name="RitualIcon" type="Sprite2D" parent="RitualPanel"]
+modulate = Color(0.159317, 0.017458, 0, 1)
+position = Vector2(59, 57)
+scale = Vector2(0.730469, 0.730469)
+texture = ExtResource("1_psyft")
+
+[node name="CooldownShape" type="TextureProgressBar" parent="RitualPanel"]
+material = SubResource("CanvasItemMaterial_q2whj")
+layout_mode = 0
+offset_left = -7.0
+offset_top = -6.0
+offset_right = 121.0
+offset_bottom = 122.0
+scale = Vector2(0.94, 0.941)
+pivot_offset = Vector2(64, 64)
+step = 0.05
+value = 100.0
+fill_mode = 5
+texture_progress = ExtResource("2_uqsj7")
+tint_progress = Color(1, 1, 1, 0.392157)
+
+[node name="RitualTimer" type="Timer" parent="RitualPanel"]
+process_callback = 0
+wait_time = 25.0
+one_shot = true
+
+[node name="SummonPanel" type="Panel" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_xuskv")
+
+[connection signal="timeout" from="RitualPanel/RitualTimer" to="." method="_on_ritual_timer_timeout"]
