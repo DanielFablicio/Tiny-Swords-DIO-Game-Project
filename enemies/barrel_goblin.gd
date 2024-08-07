@@ -1,7 +1,7 @@
 extends Enemy
 
 @onready var explosionTimer: Timer = $ExplodeTimer
-@onready var projectilCollision: Area2D = $ProjectilColission
+
 
 var bigExplosionPrefab: PackedScene = preload("res://enemies/projectiles/big_explosion.tscn")
 

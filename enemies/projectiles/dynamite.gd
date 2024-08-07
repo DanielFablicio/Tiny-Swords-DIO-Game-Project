@@ -12,7 +12,7 @@ func _ready():
 
 
 func _physics_process(_delta):
-	var progressValue: float = 6.0
+	var progressValue: float = 8.0
 	if followPath.progress_ratio <= 0.5:
 		progressValue *= 1.5 - (followPath.progress_ratio / 2)
 	else:

@@ -37,6 +37,7 @@ var enemyType: int
 
 
 func _ready() -> void:
+	#wall_min_slide_angle = deg_to_rad(15)
 	set_collision_mask_value(5, true)
 	for item: int in itensList:
 		var itemPrefab: String = "res://resourcers/items/" + itensList[item]["name"] + ".tscn"
@@ -96,7 +97,7 @@ func die() -> void:
 
 
 func dropItem() -> void:
-	if randf() > 0.2: return
+	if randf() > 0.05: return
 	var item: Node2D = itens[getRandomItem()].instantiate()
 	item.position = position
 	

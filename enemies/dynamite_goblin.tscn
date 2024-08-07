@@ -1,23 +1,19 @@
-[gd_scene load_steps=6 format=3 uid="uid://bac0kef0nibmf"]
+[gd_scene load_steps=5 format=3 uid="uid://bac0kef0nibmf"]
 
 [ext_resource type="Script" path="res://enemies/dynamite_goblin.gd" id="1_4k3dt"]
 [ext_resource type="SpriteFrames" uid="uid://c26vbia2xr5m6" path="res://sprites/animated/enemies/dynamite_goblin.tres" id="2_5k20i"]
 [ext_resource type="Script" path="res://behaviors/enemies/follow_player.gd" id="3_8uts7"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bbsug"]
-radius = 10.049
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jccm2"]
-radius = 19.0
-height = 54.0
+radius = 16.0
 
 [node name="DynamiteGoblin" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 3
 motion_mode = 1
 script = ExtResource("1_4k3dt")
-maxHealth = 3
-maxSpeed = 0.5
+maxHealth = 2
+maxSpeed = 0.6
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -32)
@@ -26,7 +22,7 @@ animation = &"attack"
 autoplay = "run"
 
 [node name="Colission" type="CollisionShape2D" parent="."]
-position = Vector2(1, -10)
+position = Vector2(1, -16)
 rotation = -1.57422
 scale = Vector2(1, 1.00816)
 shape = SubResource("CircleShape2D_bbsug")
@@ -35,7 +31,7 @@ shape = SubResource("CircleShape2D_bbsug")
 script = ExtResource("3_8uts7")
 
 [node name="DamageMarker" type="Marker2D" parent="."]
-position = Vector2(0, -57)
+position = Vector2(0, -52)
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 target_position = Vector2(0, 300)
@@ -47,15 +43,6 @@ position = Vector2(24, -36)
 process_callback = 0
 wait_time = 2.0
 one_shot = true
-
-[node name="ProjectilColission" type="Area2D" parent="."]
-collision_layer = 2
-collision_mask = 0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ProjectilColission"]
-position = Vector2(-2, -28)
-shape = SubResource("CapsuleShape2D_jccm2")
-debug_color = Color(0.746833, 0.461901, 0, 0.42)
 
 [connection signal="animation_finished" from="Sprite" to="." method="_on_sprite_animation_finished"]
 [connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]

@@ -2,15 +2,12 @@
 
 [ext_resource type="Script" path="res://enemies/fire_goblin.gd" id="1_k7c37"]
 [ext_resource type="Script" path="res://behaviors/enemies/follow_player.gd" id="2_0ahha"]
+[ext_resource type="Script" path="res://behaviors/enemies/RageMode.gd" id="2_d0yw6"]
 [ext_resource type="SpriteFrames" uid="uid://cqd3104rnqmj2" path="res://sprites/animated/enemies/fire_goblin.tres" id="3_gn5je"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cp4ow"]
-radius = 10.9965
-height = 47.6112
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g6sld"]
-radius = 19.0
-height = 58.0
+radius = 4.99997
+height = 37.699
 
 [node name="FireGoblin" type="CharacterBody2D"]
 collision_layer = 2
@@ -20,33 +17,34 @@ script = ExtResource("1_k7c37")
 maxHealth = 12
 maxSpeed = 1.0
 
+[node name="RageMode" type="Node" parent="."]
+script = ExtResource("2_d0yw6")
+
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -32)
 sprite_frames = ExtResource("3_gn5je")
 animation = &"run"
 autoplay = "run"
+frame = 5
+frame_progress = 1.0
 metadata/_edit_lock_ = true
 
 [node name="Colission" type="CollisionShape2D" parent="."]
-position = Vector2(1, -14)
+position = Vector2(1, -8)
 rotation = -1.57422
 scale = Vector2(1, 1.00816)
 shape = SubResource("CapsuleShape2D_cp4ow")
-metadata/_edit_lock_ = true
 
 [node name="FollowPlayer" type="Node" parent="."]
 script = ExtResource("2_0ahha")
 
 [node name="DamageMarker" type="Marker2D" parent="."]
-position = Vector2(0, -57)
+position = Vector2(0, -61)
 
-[node name="ProjectilColission" type="Area2D" parent="."]
-collision_layer = 2
-collision_mask = 0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ProjectilColission"]
-position = Vector2(0, -32)
-shape = SubResource("CapsuleShape2D_g6sld")
-debug_color = Color(0.746833, 0.461901, 0, 0.42)
+[node name="RageModeTimer" type="Timer" parent="."]
+process_callback = 0
+wait_time = 10.0
+one_shot = true
 
 [connection signal="animation_finished" from="Sprite" to="." method="_on_sprite_animation_finished"]
+[connection signal="timeout" from="RageModeTimer" to="RageMode" method="_on_rage_mode_timer_timeout"]

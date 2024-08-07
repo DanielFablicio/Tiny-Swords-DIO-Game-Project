@@ -1,40 +1,43 @@
 extends Enemy
 
 
-enum GoblinType {SMALL = 6, MEDIUM = 9, TALL = 12}
+
+enum GoblinType {SMALL = 4, MEDIUM = 8, TALL = 14}
 var goblinType: Dictionary = {
 	"small": {
 		"health": GoblinType.SMALL,
 		"damage": 2,
 		"scale": 1,
-		"speed": 1.3,
+		"speed": 1.6,
 		"chance": 0.5
 		},
 	"medium": {
 		"health": GoblinType.MEDIUM,
 		"damage": 4,
 		"scale": 1.4,
-		"speed": 0.8,
+		"speed": 1.2,
 		"chance": 0.3
 		},
 	"tall": {
 		"health": GoblinType.TALL,
 		"damage": 6,
 		"scale": 2,
-		"speed": 0.6,
+		"speed": 0.8,
 		"chance": 0.2
 		}
 	}
 
 var attackDamage: int
 
+
 func addInstructionsToReady() -> void:
 	enemyType = EnemyType.MELEE
 	keySprite = 3
 	setCharacteristics()
+	
 
 
-func doAttackModel():
+func doAttackModel() -> void:
 	dealDamage(attackDamage)
 
 
@@ -70,3 +73,4 @@ func setCharacteristics() -> void:
 	self.scale *= goblinType[choice]["scale"]
 	
 	
+
