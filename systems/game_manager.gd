@@ -7,6 +7,8 @@ signal playerHasDied()
 signal catchedItem(item: StringName)
 signal resetGame()
 
+signal ritualCreated(time: float)
+
 var playerDied: bool = false
 var selectedPlayer: bool = false
 
@@ -47,10 +49,9 @@ func reset():
 	timeElapsed = 0.0
 	timeELapsedInSeconds = 0
 	timeElapsedInMinutes = 0
-		
 	
 	for connection in gameOver.get_connections():
-		print(connection, "cavalo")
 		connection.callable.disconnect()
 	
 	get_tree().reload_current_scene()
+	get_tree().paused = false

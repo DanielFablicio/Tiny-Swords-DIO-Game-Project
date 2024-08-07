@@ -3,20 +3,24 @@ extends Node2D
 
 @onready var followPath: PathFollow2D = $Path2D/PathFollow2D
 
-enum Enemies {FIRE_GOBLIN, BARREL_GOBLIN, DYNAMITE_GOBLIN}
+enum Enemies {FIRE_GOBLIN, BARREL_GOBLIN, DYNAMITE_GOBLIN, SHEEP}
 var enemies: Array[PackedScene]
 var enemiesList: Dictionary = {
 	Enemies.FIRE_GOBLIN: {
 		"name": "fire_goblin",
-		"chance": 0.65
+		"chance": 0.29
 		},
 	Enemies.BARREL_GOBLIN: {
 		"name": "barrel_goblin",
-		"chance": 0.05
+		"chance": 0.01
 		},
 	Enemies.DYNAMITE_GOBLIN: {
 		"name": "dynamite_goblin",
-		"chance": 0.3
+		"chance": 0.2
+		},
+	Enemies.SHEEP: {
+		"name": "sheep",
+		"chance": 0.5
 		}
 	}
 
@@ -44,12 +48,14 @@ func _process(delta: float) -> void:
 	interval -= delta
 	if interval >= 0: return
 	
-	var spawnRate: float = initialSpawnRate + 10*spawnRatePerMinute * (GameManager.timeElapsed / 60)
+	var spawnRate: float = initialSpawnRate + 39*spawnRatePerMinute * (GameManager.timeElapsed / 60)
 	var wave: float = sin( GameManager.timeElapsed * waveFactor) + 1
 	
-	interval = 60 / abs(spawnRate - 10*wave)
+	interval = 60 / abs(spawnRate - 25*wave)
 	if interval > 3.0:
-		interval = 3.0
+		interval = 2.5
+	elif interval < 0.1:
+		interval = 0.1
 	spawnEnemy()
 
 
@@ -78,7 +84,7 @@ func getRandomEnemy() -> int:
 		
 		rangeMax = rangeMin
 
-	return Enemies.FIRE_GOBLIN
+	return Enemies.SHEEP
 
 
 func getRandomPoint() -> Vector2:

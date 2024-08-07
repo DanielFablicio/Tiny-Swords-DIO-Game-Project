@@ -8,18 +8,18 @@ func _ready() -> void:
 	GameManager.playerSelected.connect(instantiatePlayer)
 
 func instantiatePlayer(name_: StringName) -> void:
+	var player: Player
 	match name_:
 		"knight":
-			var player = knight.instantiate()
-			player.position = $SpawnPoint.position
-			addRemoteTransformers(player)
-			add_child(player)
+			player = knight.instantiate()
 			
 		"archer":
-			var player = archer.instantiate()
-			addRemoteTransformers(player)
-			player.position = $SpawnPoint.position
-			add_child(player)
+			player = archer.instantiate()
+	
+	player.position = $SpawnPoint.position
+	addRemoteTransformers(player)
+	add_child(player)
+	
 	
 	GameManager.selectedPlayer = true
 
