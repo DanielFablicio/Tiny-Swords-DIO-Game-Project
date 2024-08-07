@@ -5,6 +5,7 @@ extends Control
 func _ready():
 	%Resume.pressed.connect(resume)
 	%Quit.pressed.connect(quit)
+	%Restart.pressed.connect(restart)
 
 func resume() -> void:
 	#print("resume")
@@ -18,7 +19,10 @@ func pause() -> void:
 	get_tree().paused = true
 	self.visible = true
 	animation.play("default")
-	
+
+
+func restart():
+	GameManager.resetGame.emit()
 
 
 func quit() -> void:

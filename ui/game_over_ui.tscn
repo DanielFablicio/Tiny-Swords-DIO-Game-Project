@@ -1,8 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://1kr0eijukwyf"]
+[gd_scene load_steps=14 format=3 uid="uid://1kr0eijukwyf"]
 
 [ext_resource type="Texture2D" uid="uid://bacs235tgt3c5" path="res://addons/TinySwords/UI/Ribbons/Ribbon_Red_3Slides.png" id="1_agkdw"]
 [ext_resource type="Script" path="res://ui/game_over_ui.gd" id="1_s44ni"]
 [ext_resource type="Texture2D" uid="uid://ce05wxy18sl7r" path="res://addons/TinySwords/UI/Banners/Banner_Vertical.png" id="2_wkly8"]
+[ext_resource type="Theme" uid="uid://djo0b46mh6rbk" path="res://ui/themes/text_font_theme.tres" id="3_l27fi"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_o6wao"]
 atlas = ExtResource("1_agkdw")
@@ -14,12 +15,7 @@ texture_margin_left = 64.0
 texture_margin_right = 64.0
 axis_stretch_horizontal = 2
 
-[sub_resource type="SystemFont" id="SystemFont_kwes7"]
-font_names = PackedStringArray("Minecraft")
-subpixel_positioning = 0
-
 [sub_resource type="LabelSettings" id="LabelSettings_brb12"]
-font = SubResource("SystemFont_kwes7")
 font_size = 45
 font_color = Color(0.247059, 0.0862745, 0, 1)
 
@@ -37,12 +33,7 @@ axis_stretch_horizontal = 2
 axis_stretch_vertical = 2
 region_rect = Rect2(0, 0, 144, 144)
 
-[sub_resource type="SystemFont" id="SystemFont_fy6dv"]
-font_names = PackedStringArray("Minecraft")
-subpixel_positioning = 0
-
 [sub_resource type="LabelSettings" id="LabelSettings_r44b6"]
-font = SubResource("SystemFont_fy6dv")
 font_size = 27
 font_color = Color(0.164706, 0.168627, 0.152941, 1)
 
@@ -227,6 +218,7 @@ offset_right = 137.0
 offset_bottom = 31.5
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("3_l27fi")
 text = "GAME OVER"
 label_settings = SubResource("LabelSettings_brb12")
 horizontal_alignment = 1
@@ -268,23 +260,27 @@ columns = 2
 
 [node name="Label" type="Label" parent="Score/CenterContainer/GridContainer"]
 layout_mode = 2
+theme = ExtResource("3_l27fi")
 text = "Time Survived:"
 label_settings = SubResource("LabelSettings_r44b6")
 
 [node name="TimeSurvived" type="Label" parent="Score/CenterContainer/GridContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+theme = ExtResource("3_l27fi")
 text = "00:00"
 label_settings = SubResource("LabelSettings_r44b6")
 
 [node name="Label3" type="Label" parent="Score/CenterContainer/GridContainer"]
 layout_mode = 2
+theme = ExtResource("3_l27fi")
 text = "Enemies Killed:"
 label_settings = SubResource("LabelSettings_r44b6")
 
 [node name="EnemiesKilleds" type="Label" parent="Score/CenterContainer/GridContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+theme = ExtResource("3_l27fi")
 text = "0"
 label_settings = SubResource("LabelSettings_r44b6")
 

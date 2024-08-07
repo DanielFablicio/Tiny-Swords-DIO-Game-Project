@@ -1,21 +1,13 @@
-[gd_scene load_steps=19 format=3 uid="uid://bw5bher30e468"]
+[gd_scene load_steps=18 format=3 uid="uid://bw5bher30e468"]
 
 [ext_resource type="Texture2D" uid="uid://cakar3sgk87c8" path="res://addons/TinySwords/UI/Buttons/Button_Blue_3Slides.png" id="1_02u03"]
 [ext_resource type="Script" path="res://ui/pause_menu.gd" id="1_h218g"]
 [ext_resource type="Texture2D" uid="uid://epybuq851jmf" path="res://addons/TinySwords/UI/Buttons/Button_Hover_3Slides.png" id="2_etucl"]
+[ext_resource type="Theme" uid="uid://djo0b46mh6rbk" path="res://ui/themes/text_font_theme.tres" id="2_rbwco"]
 [ext_resource type="Texture2D" uid="uid://6kcie1fh6ss" path="res://addons/TinySwords/UI/Buttons/Button_Blue_3Slides_Pressed.png" id="3_v6pcl"]
 
-[sub_resource type="SystemFont" id="SystemFont_rhv1q"]
-font_names = PackedStringArray("Minecraft")
-subpixel_positioning = 0
-
 [sub_resource type="LabelSettings" id="LabelSettings_qay05"]
-font = SubResource("SystemFont_rhv1q")
 font_size = 24
-
-[sub_resource type="SystemFont" id="SystemFont_t0bic"]
-font_names = PackedStringArray("Minecraft")
-subpixel_positioning = 0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_u3rxs"]
 atlas = ExtResource("1_02u03")
@@ -139,16 +131,17 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -149.5
-offset_top = -113.5
-offset_right = 149.5
-offset_bottom = 113.5
+offset_left = -149.0
+offset_top = -113.0
+offset_right = 150.0
+offset_bottom = 180.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Label" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+theme = ExtResource("2_rbwco")
 text = "Paused
  "
 label_settings = SubResource("LabelSettings_qay05")
@@ -159,11 +152,11 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 2.5
+theme = ExtResource("2_rbwco")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_pressed_color = Color(1, 1, 1, 0.490196)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
-theme_override_fonts/font = SubResource("SystemFont_t0bic")
 theme_override_font_sizes/font_size = 27
 theme_override_styles/normal = SubResource("StyleBoxTexture_l3cn3")
 theme_override_styles/hover = SubResource("StyleBoxTexture_omp1w")
@@ -172,16 +165,35 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_qjeul")
 text = "RESUME"
 icon = SubResource("CompressedTexture2D_5gcey")
 
+[node name="Restart" type="Button" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.5
+theme = ExtResource("2_rbwco")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 0.490196)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 27
+theme_override_styles/normal = SubResource("StyleBoxTexture_l3cn3")
+theme_override_styles/hover = SubResource("StyleBoxTexture_omp1w")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_w8xtj")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_qjeul")
+text = "RESTART
+"
+icon = SubResource("CompressedTexture2D_5gcey")
+
 [node name="Quit" type="Button" parent="VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 2.5
+theme = ExtResource("2_rbwco")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_pressed_color = Color(1, 1, 1, 0.490196)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
-theme_override_fonts/font = SubResource("SystemFont_t0bic")
 theme_override_font_sizes/font_size = 27
 theme_override_styles/normal = SubResource("StyleBoxTexture_l3cn3")
 theme_override_styles/hover = SubResource("StyleBoxTexture_omp1w")

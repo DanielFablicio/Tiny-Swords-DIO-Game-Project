@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://dvneb3qbyri1n"]
+[gd_scene load_steps=25 format=3 uid="uid://dvneb3qbyri1n"]
 
 [ext_resource type="Script" path="res://ui/select_class.gd" id="1_8hsec"]
 [ext_resource type="Texture2D" uid="uid://p5luanm6jvc6" path="res://addons/TinySwords/Troops/Knights/Warrior/Blue/Warrior_Blue.png" id="1_bxo4v"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dgv5u3a30ixba" path="res://addons/TinySwords/Troops/Knights/Archer/Blue/Archer_Blue.png" id="2_emcax"]
 [ext_resource type="Texture2D" uid="uid://bpsex15tj3ivp" path="res://addons/TinySwords/UI/Buttons/Button_Hover_9Slides.png" id="2_l4ih7"]
 [ext_resource type="Texture2D" uid="uid://b03vigp5k7pi6" path="res://addons/TinySwords/UI/Buttons/Button_Blue_9Slides_Pressed.png" id="3_8cs3f"]
+[ext_resource type="Theme" uid="uid://djo0b46mh6rbk" path="res://ui/themes/text_font_theme.tres" id="6_8qu7y"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1u7a3"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -16,12 +17,7 @@ border_width_bottom = 8
 border_color = Color(1, 1, 1, 1)
 expand_margin_top = 6.0
 
-[sub_resource type="SystemFont" id="SystemFont_diawm"]
-font_names = PackedStringArray("Minecraft")
-subpixel_positioning = 0
-
 [sub_resource type="LabelSettings" id="LabelSettings_2a8sv"]
-font = SubResource("SystemFont_diawm")
 font_size = 45
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nc447"]
@@ -39,12 +35,7 @@ texture = ExtResource("3_8cs3f")
 atlas = ExtResource("1_bxo4v")
 region = Rect2(56, 40, 88, 96)
 
-[sub_resource type="SystemFont" id="SystemFont_hmlfr"]
-font_names = PackedStringArray("Minecraft")
-subpixel_positioning = 0
-
 [sub_resource type="LabelSettings" id="LabelSettings_sb8ks"]
-font = SubResource("SystemFont_hmlfr")
 font_size = 30
 outline_size = 15
 outline_color = Color(0, 0, 0, 1)
@@ -65,12 +56,7 @@ atlas = ExtResource("2_emcax")
 region = Rect2(48, 48, 96, 96)
 margin = Rect2(0, 10, 0, 0)
 
-[sub_resource type="SystemFont" id="SystemFont_4eym0"]
-font_names = PackedStringArray("Minecraft")
-subpixel_positioning = 0
-
 [sub_resource type="LabelSettings" id="LabelSettings_fd2os"]
-font = SubResource("SystemFont_4eym0")
 font_size = 30
 outline_size = 15
 outline_color = Color(0, 0, 0, 1)
@@ -153,10 +139,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 1519.5
-offset_top = 717.0
-offset_right = 1936.5
-offset_bottom = 1137.0
+offset_left = 3247.5
+offset_top = 1689.0
+offset_right = 3664.5
+offset_bottom = 2109.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 40
@@ -180,6 +166,7 @@ offset_right = 165.0
 offset_bottom = 25.5
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("6_8qu7y")
 text = "Select a class"
 label_settings = SubResource("LabelSettings_2a8sv")
 horizontal_alignment = 1
@@ -224,6 +211,7 @@ offset_right = 45.0
 offset_bottom = -59.0
 grow_horizontal = 2
 grow_vertical = 0
+theme = ExtResource("6_8qu7y")
 text = "Knight"
 label_settings = SubResource("LabelSettings_sb8ks")
 horizontal_alignment = 1
@@ -263,6 +251,7 @@ offset_right = 54.0
 offset_bottom = -59.0
 grow_horizontal = 2
 grow_vertical = 0
+theme = ExtResource("6_8qu7y")
 text = "Archer"
 label_settings = SubResource("LabelSettings_fd2os")
 horizontal_alignment = 1
