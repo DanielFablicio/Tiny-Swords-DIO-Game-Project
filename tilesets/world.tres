@@ -1,7 +1,14 @@
-[gd_resource type="TileSet" load_steps=6 format=3 uid="uid://b2xqi26dr46ki"]
+[gd_resource type="TileSet" load_steps=14 format=3 uid="uid://b2xqi26dr46ki"]
 
+[ext_resource type="PackedScene" uid="uid://do06g7hvq8sck" path="res://tilesets/scenes_collections/tree.tscn" id="1_cdw6t"]
 [ext_resource type="Texture2D" uid="uid://dwwm31cwi16s8" path="res://addons/TinySwords/Terrain/Ground/Tilemap_Flat.png" id="1_d2q2j"]
 [ext_resource type="Texture2D" uid="uid://dhryhnxqw0als" path="res://addons/TinySwords/Terrain/Water/Water.png" id="2_xlhdc"]
+[ext_resource type="Texture2D" uid="uid://6gie81yyxrq6" path="res://addons/TinySwords/Deco/04.png" id="4_d1smb"]
+[ext_resource type="Texture2D" uid="uid://dkp8n4mau6okd" path="res://addons/TinySwords/Deco/07.png" id="5_08q5h"]
+[ext_resource type="Texture2D" uid="uid://dkjhkpqut6pvi" path="res://addons/TinySwords/Deco/01.png" id="6_cbspe"]
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_tr326"]
+scenes/1/scene = ExtResource("1_cdw6t")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rbdm3"]
 texture = ExtResource("1_d2q2j")
@@ -124,6 +131,27 @@ texture_region_size = Vector2i(64, 64)
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xpnn6"]
+texture = ExtResource("4_d1smb")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ct4k4"]
+texture = ExtResource("5_08q5h")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_com6a"]
+texture = ExtResource("6_cbspe")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+
 [resource]
 tile_size = Vector2i(64, 64)
 physics_layer_0/collision_layer = 16
@@ -131,3 +159,7 @@ physics_layer_0/collision_mask = 3
 sources/1 = SubResource("TileSetAtlasSource_rbdm3")
 sources/2 = SubResource("TileSetAtlasSource_udaw0")
 sources/3 = SubResource("TileSetAtlasSource_10oyv")
+sources/0 = SubResource("TileSetScenesCollectionSource_tr326")
+sources/6 = SubResource("TileSetAtlasSource_xpnn6")
+sources/7 = SubResource("TileSetAtlasSource_ct4k4")
+sources/8 = SubResource("TileSetAtlasSource_com6a")
