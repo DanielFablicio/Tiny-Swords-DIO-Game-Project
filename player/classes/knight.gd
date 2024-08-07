@@ -4,7 +4,7 @@ extends Player
 
 
 
-enum AttackType {LIGHT = 3, HEAVY = 6}
+enum AttackType {LIGHT = 3, HEAVY = 7}
 var attackType: Dictionary = {
 	"light": AttackType.LIGHT, 
 	"heavy": AttackType.HEAVY

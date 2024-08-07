@@ -36,9 +36,9 @@ func addInstructionsToProcess() -> void:
 	var invertShootPointX: float
 	
 	if !sprite.flip_h:
-		invertShootPointX = -10
+		invertShootPointX = -20
 	else:
-		invertShootPointX = 10
+		invertShootPointX = 20
 		
 	if attackDirection == Vector2.UP:
 		invertShootPointX *= -1
@@ -48,7 +48,7 @@ func addInstructionsToProcess() -> void:
 	if whichAttackType == "heavy" && (sprite.frame > 2 && sprite.frame < 6):	
 		sprite.speed_scale = 0.6
 	else:
-		sprite.speed_scale = 1.3
+		sprite.speed_scale = 1.4
 
 func doAttackModel():
 	var arrowDirection: Vector2 = getAttackConstantDirection()

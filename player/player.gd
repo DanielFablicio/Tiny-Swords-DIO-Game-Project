@@ -21,6 +21,8 @@ var inputDirection: Vector2
 var whichAttackType: StringName = ""
 var yAttack: StringName = ""
 
+const hitCooldownMax: float = 0.05
+var hitCooldown: float = 0
 
 var keySprite: int = 3
 var lastSpriteFrame: int = 0
@@ -45,7 +47,8 @@ func _ready():
 	add_child(ritualTimer)
 
 
-func _process(_delta) -> void:
+func _process(delta) -> void:
+	hitCooldown -= delta
 	if isAttacking():
 		attack()
 	else: playRunIdleAnimation()
@@ -68,7 +71,7 @@ func _physics_process(_delta) -> void:
 
 func setRitualTimer() -> void:
 	ritualTimer.process_callback = Timer.TIMER_PROCESS_PHYSICS
-	ritualTimer.wait_time = 20
+	ritualTimer.wait_time = 25
 	ritualTimer.autostart = true
 	ritualTimer.one_shot = false
 	ritualTimer.timeout.connect(createRitual)
@@ -133,7 +136,9 @@ func doAttackModel() -> void:
 
 func _on_playerTakeDamage(amount: int) -> void:
 	if isShieldActivated: return
+	if hitCooldown > 0: return
 	takeDamage(amount)
+	hitCooldown = hitCooldownMax
 	print(amount, "  ", health)
 
 
@@ -157,6 +162,7 @@ func _on_hitbox_collision_body_exited(enemy: Enemy) -> void:
 
 func createRitual() -> void:
 	var ritual: Node2D = ritualMagicPrefab.instantiate()
+	GameManager.ritualCreated.emit(ritualTimer.wait_time)
 	add_child(ritual)
 
 

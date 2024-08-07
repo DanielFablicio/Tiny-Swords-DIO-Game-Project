@@ -25,15 +25,18 @@ corner_radius_bottom_left = 5
 [node name="PlayerArcher" type="CharacterBody2D"]
 collision_mask = 7
 motion_mode = 1
+safe_margin = 1.0
 script = ExtResource("1_0q87j")
 maxHealth = 70
-maxSpeed = 3.5
+maxSpeed = 2.9
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(-2, -32)
 sprite_frames = ExtResource("2_aekbb")
-animation = &"attack"
+animation = &"down_attack"
 autoplay = "idle"
+frame = 7
+frame_progress = 1.0
 offset = Vector2(2, 0)
 
 [node name="Collision" type="CollisionShape2D" parent="."]
@@ -62,4 +65,4 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_ldy6x")
 show_percentage = false
 
 [node name="ShootPoint" type="Marker2D" parent="."]
-position = Vector2(10, -22)
+position = Vector2(20, -22)
